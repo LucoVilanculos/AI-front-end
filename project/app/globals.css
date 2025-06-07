@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 15, 15, 25;
+  --background-end-rgb: 25, 15, 35;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 15, 15, 25;
+    --background-start-rgb: 240, 242, 255;
+    --background-end-rgb: 255, 240, 255;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 5% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 78% 70%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 6%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 262 78% 70%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 62.8% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 262 78% 70%;
+    --chart-1: 262 78% 70%;
+    --chart-2: 217 91% 60%;
+    --chart-3: 142 76% 56%;
+    --chart-4: 330 81% 65%;
+    --chart-5: 47 96% 60%;
+    --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 262 78% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 262 78% 95%;
+    --accent-foreground: 262 78% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 262 78% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20;
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--primary)), 0 0 60px hsl(var(--primary));
+  }
+  
+  .hologram-effect {
+    background: linear-gradient(45deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--chart-2)) 25%, 
+      hsl(var(--chart-3)) 50%, 
+      hsl(var(--chart-4)) 75%, 
+      hsl(var(--primary)) 100%
+    );
+    background-size: 400% 400%;
+    animation: hologram 4s ease-in-out infinite;
+  }
+  
+  @keyframes hologram {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .voice-wave {
+    animation: voiceWave 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes voiceWave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
+  }
+}
